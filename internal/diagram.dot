@@ -1,0 +1,90 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "InternalStack" {
+    subgraph "cluster-SubGraph.InternalStack" {
+      graph [
+        label = "InternalStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "InternalStack/internal-api-vpc" [
+        label = " internal-api-vpc",
+        fontsize = 12,
+        image = "/Users/leegilmore/Documents/git/serverless-api-2-api/internal/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "InternalStack/OrdersHandler" [
+        label = " OrdersHandler",
+        fontsize = 12,
+        image = "/Users/leegilmore/Documents/git/serverless-api-2-api/internal/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "InternalStack/InternalOrdersApi" [
+        label = " InternalOrdersApi",
+        fontsize = 12,
+        image = "/Users/leegilmore/Documents/git/serverless-api-2-api/internal/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+    }
+  }
+  "InternalStack/OrdersHandler" -> "InternalStack/internal-api-vpc" [
+    dir = "both",
+  ];
+  "InternalStack/InternalOrdersApi" -> "InternalStack/OrdersHandler" [
+    dir = "both",
+  ];
+}

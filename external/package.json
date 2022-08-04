@@ -1,0 +1,42 @@
+{
+  "name": "external",
+  "version": "0.1.0",
+  "bin": {
+    "external": "bin/external.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "deploy": "cdk deploy --profile default --outputs-file ./cdk-outputs.json",
+    "remove": "cdk destroy",
+    "diagram": "npx cdk-dia"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.100",
+    "@types/jest": "^27.5.0",
+    "@types/node": "10.17.27",
+    "@types/node-fetch": "^2.6.1",
+    "@types/prettier": "2.6.0",
+    "@types/uuid": "^8.3.4",
+    "aws-cdk": "2.27.0",
+    "esbuild": "^0.14.43",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "@aws-crypto/sha256-js": "^2.0.1",
+    "@aws-sdk/protocol-http": "^3.78.0",
+    "@aws-sdk/signature-v4": "^3.78.0",
+    "aws-cdk-lib": "^2.27.0",
+    "axios": "^0.27.2",
+    "cdk-dia": "^0.7.0",
+    "constructs": "^10.0.0",
+    "node-fetch": "^3.2.6",
+    "source-map-support": "^0.5.21",
+    "uuid": "^8.3.2"
+  }
+}
